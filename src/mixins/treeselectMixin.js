@@ -733,13 +733,13 @@ export default {
       // istanbul ignore else
       if (this.single || this.flat || this.disableBranchNodes || this.valueConsistsOf === ALL) {
         internalValue = this.forest.selectedNodeIds.slice()
-      } else if (this.valueConsistsOf === BRANCH_PRIORITY) {
-        internalValue = this.forest.selectedNodeIds.filter(id => {
-          const node = this.getNode(id)
-          if (node.isRootNode) return true
-          return !this.isSelected(node.parentNode)
-        })
-      } else if (this.valueConsistsOf === LEAF_PRIORITY) {
+      // } else if (this.valueConsistsOf === BRANCH_PRIORITY) {
+      //   internalValue = this.forest.selectedNodeIds.filter(id => {
+      //     const node = this.getNode(id)
+      //     if (node.isRootNode) return true
+      //     return !this.isSelected(node.parentNode)
+      //   })
+      } else if (this.valueConsistsOf === LEAF_PRIORITY || this.valueConsistsOf === BRANCH_PRIORITY) {
         internalValue = this.forest.selectedNodeIds.filter(id => {
           const node = this.getNode(id)
           if (node.isLeaf) return true
@@ -1555,7 +1555,7 @@ export default {
           const { id, label, children, isDefaultExpanded } = node
           const isRootNode = parentNode === NO_PARENT_NODE
           const level = isRootNode ? 0 : parentNode.level + 1
-          const isBranch = Array.isArray(children) || children === null
+          const isBranch = Array.isArray(children) && children.length > 0
           const isLeaf = !isBranch
           const isDisabled = !!node.isDisabled || (!this.flat && !isRootNode && parentNode.isDisabled)
           const isNew = !!node.isNew

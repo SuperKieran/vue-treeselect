@@ -62,7 +62,6 @@
         return (
           <div class="vue-treeselect__list">
             {this.renderSubOptions()}
-            {this.renderNoChildrenTip()}
             {this.renderLoadingChildrenTip()}
             {this.renderLoadingChildrenErrorTip()}
           </div>

@@ -3,7 +3,7 @@ const path = require('path')
 
 const dev = {
   env: require('./dev.env'),
-  port: 8080,
+  port: 8090,
   autoOpenBrowser: true,
   assetsSubDirectory: 'static',
   assetsPublicPath: '/',
