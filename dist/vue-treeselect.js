@@ -654,7 +654,7 @@ var instanceId = 0;
     },
     clearAllText: {
       type: String,
-      default: 'Clear all'
+      default: ''
     },
     clearOnSelect: {
       type: Boolean,
@@ -662,7 +662,7 @@ var instanceId = 0;
     },
     clearValueText: {
       type: String,
-      default: 'Clear value'
+      default: ''
     },
     closeOnSelect: {
       type: Boolean,
@@ -2622,8 +2622,8 @@ var Delete_component = normalizeComponent(
 
 
 /* harmony default export */ var MultiValueItemvue_type_script_lang_js_ = ({
-  name: 'vue-treeselect--multi-value-item',
-  inject: ['instance'],
+  name: "vue-treeselect--multi-value-item",
+  inject: ["instance"],
   props: {
     node: {
       type: Object,
@@ -2642,25 +2642,25 @@ var Delete_component = normalizeComponent(
     var instance = this.instance,
         node = this.node;
     var itemClass = {
-      'vue-treeselect__multi-value-item': true,
-      'vue-treeselect__multi-value-item-disabled': node.isDisabled,
-      'vue-treeselect__multi-value-item-new': node.isNew
+      "vue-treeselect__multi-value-item": true,
+      "vue-treeselect__multi-value-item-disabled": node.isDisabled,
+      "vue-treeselect__multi-value-item-new": node.isNew
     };
-    var customValueLabelRenderer = instance.$scopedSlots['value-label'];
+    var customValueLabelRenderer = instance.$scopedSlots["value-label"];
     var labelRenderer = customValueLabelRenderer ? customValueLabelRenderer({
       node: node
     }) : node.label;
     return h("div", {
       "class": "vue-treeselect__multi-value-item-container"
     }, [h("div", {
-      "class": itemClass,
-      on: {
-        "mousedown": this.handleMouseDown
-      }
+      "class": itemClass
     }, [h("span", {
       "class": "vue-treeselect__multi-value-label"
     }, [labelRenderer]), h("span", {
-      "class": "vue-treeselect__icon vue-treeselect__value-remove"
+      "class": "vue-treeselect__icon vue-treeselect__value-remove",
+      on: {
+        "mousedown": this.handleMouseDown
+      }
     }, [h(Delete)])])]);
   }
 });
