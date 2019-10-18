@@ -87,7 +87,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 17);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -100,100 +100,94 @@ module.exports = require("@babel/runtime/helpers/slicedToArray");
 /* 1 */
 /***/ (function(module, exports) {
 
-module.exports = require("@babel/runtime/helpers/defineProperty");
+module.exports = require("@babel/runtime/helpers/toConsumableArray");
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = require("@babel/runtime/helpers/toConsumableArray");
+module.exports = require("@babel/runtime/helpers/defineProperty");
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = require("@babel/runtime/helpers/objectSpread");
+module.exports = require("fuzzysearch");
 
 /***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = require("fuzzysearch");
+module.exports = require("lodash/noop");
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = require("lodash/noop");
+module.exports = require("lodash/debounce");
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = require("lodash/debounce");
+module.exports = require("watch-size");
 
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = require("watch-size");
+module.exports = require("is-promise");
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports) {
 
-module.exports = require("is-promise");
+module.exports = require("lodash/once");
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports) {
 
-module.exports = require("lodash/once");
+module.exports = require("lodash/identity");
 
 /***/ }),
 /* 10 */
 /***/ (function(module, exports) {
 
-module.exports = require("lodash/identity");
+module.exports = require("lodash/constant");
 
 /***/ }),
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = require("lodash/constant");
+module.exports = require("@babel/runtime/helpers/typeof");
 
 /***/ }),
 /* 12 */
 /***/ (function(module, exports) {
 
-module.exports = require("@babel/runtime/helpers/typeof");
+module.exports = require("lodash/last");
 
 /***/ }),
 /* 13 */
 /***/ (function(module, exports) {
 
-module.exports = require("lodash/last");
+module.exports = require("babel-helper-vue-jsx-merge-props");
 
 /***/ }),
 /* 14 */
 /***/ (function(module, exports) {
 
-module.exports = require("babel-helper-vue-jsx-merge-props");
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
 module.exports = require("vue");
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -203,24 +197,20 @@ __webpack_require__.r(__webpack_exports__);
 var slicedToArray_ = __webpack_require__(0);
 var slicedToArray_default = /*#__PURE__*/__webpack_require__.n(slicedToArray_);
 
-// EXTERNAL MODULE: external "@babel/runtime/helpers/defineProperty"
-var defineProperty_ = __webpack_require__(1);
-var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty_);
-
 // EXTERNAL MODULE: external "@babel/runtime/helpers/toConsumableArray"
-var toConsumableArray_ = __webpack_require__(2);
+var toConsumableArray_ = __webpack_require__(1);
 var toConsumableArray_default = /*#__PURE__*/__webpack_require__.n(toConsumableArray_);
 
-// EXTERNAL MODULE: external "@babel/runtime/helpers/objectSpread"
-var objectSpread_ = __webpack_require__(3);
-var objectSpread_default = /*#__PURE__*/__webpack_require__.n(objectSpread_);
+// EXTERNAL MODULE: external "@babel/runtime/helpers/defineProperty"
+var defineProperty_ = __webpack_require__(2);
+var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty_);
 
 // EXTERNAL MODULE: external "fuzzysearch"
-var external_fuzzysearch_ = __webpack_require__(4);
+var external_fuzzysearch_ = __webpack_require__(3);
 var external_fuzzysearch_default = /*#__PURE__*/__webpack_require__.n(external_fuzzysearch_);
 
 // EXTERNAL MODULE: external "lodash/noop"
-var noop_ = __webpack_require__(5);
+var noop_ = __webpack_require__(4);
 var noop_default = /*#__PURE__*/__webpack_require__.n(noop_);
 
 // CONCATENATED MODULE: ./src/utils/noop.js
@@ -262,13 +252,13 @@ function scrollIntoView($scrollingEl, $focusedEl) {
   }
 }
 // EXTERNAL MODULE: external "lodash/debounce"
-var debounce_ = __webpack_require__(6);
+var debounce_ = __webpack_require__(5);
 var debounce_default = /*#__PURE__*/__webpack_require__.n(debounce_);
 
 // CONCATENATED MODULE: ./src/utils/debounce.js
 
 // EXTERNAL MODULE: external "watch-size"
-var external_watch_size_ = __webpack_require__(7);
+var external_watch_size_ = __webpack_require__(6);
 var external_watch_size_default = /*#__PURE__*/__webpack_require__.n(external_watch_size_);
 
 // CONCATENATED MODULE: ./src/utils/removeFromArray.js
@@ -389,25 +379,25 @@ function isNaN_isNaN(x) {
   return x !== x;
 }
 // EXTERNAL MODULE: external "is-promise"
-var external_is_promise_ = __webpack_require__(8);
+var external_is_promise_ = __webpack_require__(7);
 var external_is_promise_default = /*#__PURE__*/__webpack_require__.n(external_is_promise_);
 
 // CONCATENATED MODULE: ./src/utils/isPromise.js
 
 // EXTERNAL MODULE: external "lodash/once"
-var once_ = __webpack_require__(9);
+var once_ = __webpack_require__(8);
 var once_default = /*#__PURE__*/__webpack_require__.n(once_);
 
 // CONCATENATED MODULE: ./src/utils/once.js
 
 // EXTERNAL MODULE: external "lodash/identity"
-var identity_ = __webpack_require__(10);
+var identity_ = __webpack_require__(9);
 var identity_default = /*#__PURE__*/__webpack_require__.n(identity_);
 
 // CONCATENATED MODULE: ./src/utils/identity.js
 
 // EXTERNAL MODULE: external "lodash/constant"
-var constant_ = __webpack_require__(11);
+var constant_ = __webpack_require__(10);
 var constant_default = /*#__PURE__*/__webpack_require__.n(constant_);
 
 // CONCATENATED MODULE: ./src/utils/constant.js
@@ -417,7 +407,7 @@ var createMap = function createMap() {
   return Object.create(null);
 };
 // EXTERNAL MODULE: external "@babel/runtime/helpers/typeof"
-var typeof_ = __webpack_require__(12);
+var typeof_ = __webpack_require__(11);
 var typeof_default = /*#__PURE__*/__webpack_require__.n(typeof_);
 
 // CONCATENATED MODULE: ./src/utils/deepExtend.js
@@ -449,7 +439,7 @@ function deepExtend(target, source) {
   return target;
 }
 // EXTERNAL MODULE: external "lodash/last"
-var last_ = __webpack_require__(13);
+var last_ = __webpack_require__(12);
 var last_default = /*#__PURE__*/__webpack_require__.n(last_);
 
 // CONCATENATED MODULE: ./src/utils/last.js
@@ -534,6 +524,10 @@ var MENU_BUFFER = 40;
 
 
 
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 
 
@@ -762,7 +756,7 @@ var instanceId = 0;
     },
     noResultsText: {
       type: String,
-      default: 'No results found...'
+      default: '未找到对应项目'
     },
     normalizer: {
       type: Function,
@@ -1214,7 +1208,7 @@ var instanceId = 0;
       this.forest.selectedNodeIds.forEach(function (id) {
         if (!prevNodeMap[id]) return;
 
-        var node = objectSpread_default()({}, prevNodeMap[id], {
+        var node = _objectSpread({}, prevNodeMap[id], {
           isFallbackNode: true
         });
 
@@ -1420,7 +1414,7 @@ var instanceId = 0;
 
       var searchQuery = this.trigger.searchQuery;
 
-      var entry = this.remoteSearch[searchQuery] || objectSpread_default()({}, createAsyncOptionsStates(), {
+      var entry = this.remoteSearch[searchQuery] || _objectSpread({}, createAsyncOptionsStates(), {
         options: []
       });
 
@@ -1602,7 +1596,7 @@ var instanceId = 0;
       this.forest.checkedStateMap = checkedStateMap;
     },
     enhancedNormalizer: function enhancedNormalizer(raw) {
-      return objectSpread_default()({}, raw, this.normalizer(raw, this.getInstanceId()));
+      return _objectSpread({}, raw, {}, this.normalizer(raw, this.getInstanceId()));
     },
     normalize: function normalize(parentNode, nodes, prevNodeMap) {
       var _this16 = this;
@@ -1630,7 +1624,7 @@ var instanceId = 0;
         var isNew = !!node.isNew;
 
         var lowerCased = _this16.matchKeys.reduce(function (prev, key) {
-          return objectSpread_default()({}, prev, defineProperty_default()({}, key, stringifyOptionPropValue(node[key]).toLocaleLowerCase()));
+          return _objectSpread({}, prev, defineProperty_default()({}, key, stringifyOptionPropValue(node[key]).toLocaleLowerCase()));
         }, {});
 
         var nestedSearchLabel = isRootNode ? lowerCased.label : parentNode.nestedSearchLabel + ' ' + lowerCased.label;
@@ -1674,7 +1668,7 @@ var instanceId = 0;
 
           var isLoaded = Array.isArray(children);
 
-          _this16.$set(normalized, 'childrenStates', objectSpread_default()({}, createAsyncOptionsStates(), {
+          _this16.$set(normalized, 'childrenStates', _objectSpread({}, createAsyncOptionsStates(), {
             isLoaded: isLoaded
           }));
 
@@ -1733,7 +1727,7 @@ var instanceId = 0;
             if (prev.childrenStates.isLoaded && !normalized.childrenStates.isLoaded) {
               normalized.isExpanded = false;
             } else {
-              normalized.childrenStates = objectSpread_default()({}, prev.childrenStates);
+              normalized.childrenStates = _objectSpread({}, prev.childrenStates);
             }
           }
         }
@@ -1831,7 +1825,7 @@ var instanceId = 0;
 
         end();
       });
-      var result = this.loadOptions(objectSpread_default()({
+      var result = this.loadOptions(_objectSpread({
         id: this.getInstanceId(),
         instanceId: this.getInstanceId(),
         action: action
@@ -2044,7 +2038,7 @@ var instanceId = 0;
     this.toggleClickOutsideEvent(false);
   }
 });
-// CONCATENATED MODULE: ./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/babel-loader/lib!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/HiddenFields.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/HiddenFields.vue?vue&type=script&lang=js&
 
 
 function stringifyValue(value) {
@@ -2079,7 +2073,7 @@ function stringifyValue(value) {
 });
 // CONCATENATED MODULE: ./src/components/HiddenFields.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_HiddenFieldsvue_type_script_lang_js_ = (HiddenFieldsvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./node_modules.nosync/vue-loader/lib/runtime/componentNormalizer.js
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 /* globals __VUE_SSR_CONTEXT__ */
 
 // IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
@@ -2195,10 +2189,10 @@ var component = normalizeComponent(
 
 /* harmony default export */ var HiddenFields = (component.exports);
 // EXTERNAL MODULE: external "babel-helper-vue-jsx-merge-props"
-var external_babel_helper_vue_jsx_merge_props_ = __webpack_require__(14);
+var external_babel_helper_vue_jsx_merge_props_ = __webpack_require__(13);
 var external_babel_helper_vue_jsx_merge_props_default = /*#__PURE__*/__webpack_require__.n(external_babel_helper_vue_jsx_merge_props_);
 
-// CONCATENATED MODULE: ./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/babel-loader/lib!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/Input.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Input.vue?vue&type=script&lang=js&
 
 
 
@@ -2496,7 +2490,7 @@ var Input_component = normalizeComponent(
 )
 
 /* harmony default export */ var Input = (Input_component.exports);
-// CONCATENATED MODULE: ./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/babel-loader/lib!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/Placeholder.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Placeholder.vue?vue&type=script&lang=js&
 /* harmony default export */ var Placeholdervue_type_script_lang_js_ = ({
   name: 'vue-treeselect--placeholder',
   inject: ['instance'],
@@ -2535,7 +2529,7 @@ var Placeholder_component = normalizeComponent(
 )
 
 /* harmony default export */ var Placeholder = (Placeholder_component.exports);
-// CONCATENATED MODULE: ./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/babel-loader/lib!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/SingleValue.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/SingleValue.vue?vue&type=script&lang=js&
 
 
 /* harmony default export */ var SingleValuevue_type_script_lang_js_ = ({
@@ -2585,14 +2579,14 @@ var SingleValue_component = normalizeComponent(
 )
 
 /* harmony default export */ var SingleValue = (SingleValue_component.exports);
-// CONCATENATED MODULE: ./node_modules.nosync/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/icons/Delete.vue?vue&type=template&id=12b4a02e&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js!./node_modules/vue-loader/lib??vue-loader-options!./src/components/icons/Delete.vue?vue&type=template&id=12b4a02e&
 var Deletevue_type_template_id_12b4a02e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('svg',{attrs:{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 348.333 348.333"}},[_c('path',{attrs:{"d":"M336.559 68.611L231.016 174.165l105.543 105.549c15.699 15.705 15.699 41.145 0 56.85-7.844 7.844-18.128 11.769-28.407 11.769-10.296 0-20.581-3.919-28.419-11.769L174.167 231.003 68.609 336.563c-7.843 7.844-18.128 11.769-28.416 11.769-10.285 0-20.563-3.919-28.413-11.769-15.699-15.698-15.699-41.139 0-56.85l105.54-105.549L11.774 68.611c-15.699-15.699-15.699-41.145 0-56.844 15.696-15.687 41.127-15.687 56.829 0l105.563 105.554L279.721 11.767c15.705-15.687 41.139-15.687 56.832 0 15.705 15.699 15.705 41.145.006 56.844z"}})])}
 var Deletevue_type_template_id_12b4a02e_staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./src/components/icons/Delete.vue?vue&type=template&id=12b4a02e&
 
-// CONCATENATED MODULE: ./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/babel-loader/lib!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/icons/Delete.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/icons/Delete.vue?vue&type=script&lang=js&
 /* harmony default export */ var Deletevue_type_script_lang_js_ = ({
   name: 'vue-treeselect--x'
 });
@@ -2618,7 +2612,7 @@ var Delete_component = normalizeComponent(
 )
 
 /* harmony default export */ var Delete = (Delete_component.exports);
-// CONCATENATED MODULE: ./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/babel-loader/lib!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/MultiValueItem.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MultiValueItem.vue?vue&type=script&lang=js&
 
 
 /* harmony default export */ var MultiValueItemvue_type_script_lang_js_ = ({
@@ -2686,7 +2680,7 @@ var MultiValueItem_component = normalizeComponent(
 )
 
 /* harmony default export */ var MultiValueItem = (MultiValueItem_component.exports);
-// CONCATENATED MODULE: ./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/babel-loader/lib!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/MultiValue.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MultiValue.vue?vue&type=script&lang=js&
 
 
 
@@ -2762,14 +2756,14 @@ var MultiValue_component = normalizeComponent(
 )
 
 /* harmony default export */ var MultiValue = (MultiValue_component.exports);
-// CONCATENATED MODULE: ./node_modules.nosync/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/icons/Arrow.vue?vue&type=template&id=5d5151cb&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js!./node_modules/vue-loader/lib??vue-loader-options!./src/components/icons/Arrow.vue?vue&type=template&id=5d5151cb&
 var Arrowvue_type_template_id_5d5151cb_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('svg',{attrs:{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 292.362 292.362"}},[_c('path',{attrs:{"d":"M286.935 69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952 0-9.233 1.807-12.85 5.424C1.807 72.998 0 77.279 0 82.228c0 4.948 1.807 9.229 5.424 12.847l127.907 127.907c3.621 3.617 7.902 5.428 12.85 5.428s9.233-1.811 12.847-5.428L286.935 95.074c3.613-3.617 5.427-7.898 5.427-12.847 0-4.948-1.814-9.229-5.427-12.85z"}})])}
 var Arrowvue_type_template_id_5d5151cb_staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./src/components/icons/Arrow.vue?vue&type=template&id=5d5151cb&
 
-// CONCATENATED MODULE: ./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/babel-loader/lib!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/icons/Arrow.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/icons/Arrow.vue?vue&type=script&lang=js&
 /* harmony default export */ var Arrowvue_type_script_lang_js_ = ({
   name: 'vue-treeselect--arrow'
 });
@@ -2795,7 +2789,7 @@ var Arrow_component = normalizeComponent(
 )
 
 /* harmony default export */ var Arrow = (Arrow_component.exports);
-// CONCATENATED MODULE: ./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/babel-loader/lib!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/Control.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Control.vue?vue&type=script&lang=js&
 
 
 
@@ -2924,7 +2918,7 @@ var Control_component = normalizeComponent(
 )
 
 /* harmony default export */ var Control = (Control_component.exports);
-// CONCATENATED MODULE: ./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/babel-loader/lib!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/Tip.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Tip.vue?vue&type=script&lang=js&
 /* harmony default export */ var Tipvue_type_script_lang_js_ = ({
   name: 'vue-treeselect--tip',
   functional: true,
@@ -2975,7 +2969,7 @@ var Tip_component = normalizeComponent(
 )
 
 /* harmony default export */ var Tip = (Tip_component.exports);
-// CONCATENATED MODULE: ./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/babel-loader/lib!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/Option.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Option.vue?vue&type=script&lang=js&
 
 
 
@@ -3258,7 +3252,7 @@ var Option_component = normalizeComponent(
 )
 
 /* harmony default export */ var components_Option = (Option_component.exports);
-// CONCATENATED MODULE: ./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/babel-loader/lib!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/Menu.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Menu.vue?vue&type=script&lang=js&
 
 
 
@@ -3554,10 +3548,15 @@ var Menu_component = normalizeComponent(
 
 /* harmony default export */ var Menu = (Menu_component.exports);
 // EXTERNAL MODULE: external "vue"
-var external_vue_ = __webpack_require__(15);
+var external_vue_ = __webpack_require__(14);
 var external_vue_default = /*#__PURE__*/__webpack_require__.n(external_vue_);
 
-// CONCATENATED MODULE: ./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/babel-loader/lib!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/MenuPortal.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MenuPortal.vue?vue&type=script&lang=js&
+
+
+function MenuPortalvue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function MenuPortalvue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { MenuPortalvue_type_script_lang_js_ownKeys(source, true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { MenuPortalvue_type_script_lang_js_ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 
 
@@ -3689,7 +3688,7 @@ var placeholder;
     setup: function setup() {
       var el = document.createElement('div');
       document.body.appendChild(el);
-      this.portalTarget = new external_vue_default.a(objectSpread_default()({
+      this.portalTarget = new external_vue_default.a(MenuPortalvue_type_script_lang_js_objectSpread({
         el: el,
         parent: this
       }, PortalTarget));
@@ -3731,7 +3730,7 @@ var MenuPortal_component = normalizeComponent(
 )
 
 /* harmony default export */ var MenuPortal = (MenuPortal_component.exports);
-// CONCATENATED MODULE: ./node_modules.nosync/cache-loader/dist/cjs.js!./node_modules.nosync/babel-loader/lib!./node_modules.nosync/vue-loader/lib??vue-loader-options!./src/components/Treeselect.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Treeselect.vue?vue&type=script&lang=js&
 
 
 
@@ -3795,7 +3794,7 @@ var Treeselect_component = normalizeComponent(
 
 /* harmony default export */ var Treeselect = (Treeselect_component.exports);
 // EXTERNAL MODULE: ./src/style.less
-var style = __webpack_require__(16);
+var style = __webpack_require__(15);
 
 // CONCATENATED MODULE: ./src/index.js
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__esModule", function() { return __esModule; });

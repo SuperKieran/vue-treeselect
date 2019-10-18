@@ -466,7 +466,7 @@ export default {
      */
     noResultsText: {
       type: String,
-      default: 'No results found...'
+      default: '未找到对应项目'
     },
 
     /**
