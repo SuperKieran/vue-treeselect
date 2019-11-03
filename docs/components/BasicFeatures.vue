@@ -6,6 +6,19 @@
       :options="options"
       placeholder="Select 11 favourite(s)..."
       v-model="value"
+      :defaultExpandLevel="Infinity"
+      :defaultOpen="true"
+      :openOnClick="true"
+    />
+    <treeselect
+      :multiple="true"
+      :flatten-search-results="true"
+      :options="options"
+      placeholder="Select 11 favourite(s)..."
+      v-model="value"
+      :defaultExpandLevel="Infinity"
+      :defaultOpen="true"
+      :openOnClick="true"
     />
     <pre class="result">{{ value }}</pre>
   </div>
@@ -17,35 +30,35 @@ export default {
     value: [],
     options: [
       {
-        id: 'fruits',
-        label: 'Fruits',
+        id: "fruits",
+        label: "Fruits",
         children: [
           {
-            id: 'apple',
-            label: 'Apple 🍎',
+            id: "apple",
+            label: "Apple 🍎",
             isNew: true
           },
           {
-            id: 'grapes',
-            label: 'Grapes 🍇'
+            id: "grapes",
+            label: "Grapes 🍇"
           },
           {
-            id: 'pear',
-            label: 'Pear 🍐'
+            id: "pear",
+            label: "Pear 🍐"
           },
           {
-            id: 'strawberry',
-            label: 'Strawberry 🍓'
+            id: "strawberry",
+            label: "Strawberry 🍓"
           },
           {
-            id: 'watermelon',
-            label: 'Watermelon 🍉'
+            id: "watermelon",
+            label: "Watermelon 🍉"
           }
         ]
       },
       {
-        id: 'vegetables',
-        label: 'Vegetables',
+        id: "vegetables",
+        label: "Vegetables",
         children: [
           // {
           //   id: 'corn',
@@ -67,5 +80,5 @@ export default {
       }
     ]
   })
-}
+};
 </script>

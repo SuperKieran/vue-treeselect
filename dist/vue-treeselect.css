@@ -19,29 +19,55 @@
   display: none;
 }
 .vue-treeselect-helper-zoom-effect-off {
-  -ms-transform: none !important;
-      transform: none !important;
+  -webkit-transform: none !important;
+      -ms-transform: none !important;
+          transform: none !important;
 }
 /**
  * Animations
  */
+@-webkit-keyframes vue-treeselect-animation-fade-in {
+  0% {
+    opacity: 0;
+  }
+}
 @keyframes vue-treeselect-animation-fade-in {
   0% {
     opacity: 0;
   }
 }
+@-webkit-keyframes vue-treeselect-animation-bounce {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
 @keyframes vue-treeselect-animation-bounce {
   0%,
   100% {
-    transform: scale(0);
+    -webkit-transform: scale(0);
+            transform: scale(0);
   }
   50% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes vue-treeselect-animation-rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 @keyframes vue-treeselect-animation-rotate {
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 /**
@@ -49,24 +75,34 @@
  */
 .vue-treeselect__multi-value-item--transition-enter-active,
 .vue-treeselect__multi-value-item--transition-leave-active {
-  transition-duration: 200ms;
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
   transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
 }
 .vue-treeselect__multi-value-item--transition-enter-active {
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+          transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .vue-treeselect__multi-value-item--transition-leave-active {
-  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   position: absolute;
 }
 .vue-treeselect__multi-value-item--transition-enter,
 .vue-treeselect__multi-value-item--transition-leave-to {
-  -ms-transform: scale(0.7);
-      transform: scale(0.7);
+  -webkit-transform: scale(0.7);
+      -ms-transform: scale(0.7);
+          transform: scale(0.7);
   opacity: 0;
 }
 .vue-treeselect__multi-value-item--transition-move {
+  -webkit-transition: 200ms -webkit-transform cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: 200ms -webkit-transform cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: 200ms transform cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: 200ms transform cubic-bezier(0.165, 0.84, 0.44, 1), 200ms -webkit-transform cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 /**
  * Namespace
@@ -95,9 +131,12 @@
   border: 1px solid #dcdfe6;
   border-radius: 5px;
   background: #fff;
-  transition-duration: 200ms;
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+  -webkit-transition-property: border-color, box-shadow, width, height, background-color, opacity;
   transition-property: border-color, box-shadow, width, height, background-color, opacity;
-  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .vue-treeselect:not(.vue-treeselect--disabled):not(.vue-treeselect--focused) .vue-treeselect__control:hover {
   border-color: #dcdfe6;
@@ -326,7 +365,8 @@
   line-height: 0;
   cursor: pointer;
   color: #ccc;
-  animation: 200ms vue-treeselect-animation-fade-in cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-animation: 200ms vue-treeselect-animation-fade-in cubic-bezier(0.075, 0.82, 0.165, 1);
+          animation: 200ms vue-treeselect-animation-fade-in cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .vue-treeselect__x-container:hover {
   color: #e53935;
@@ -358,8 +398,9 @@
   opacity: 0.35;
 }
 .vue-treeselect__control-arrow--rotated {
-  -ms-transform: rotate(180deg);
-      transform: rotateZ(180deg);
+  -webkit-transform: rotateZ(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotateZ(180deg);
 }
 /**
  * Menu
@@ -369,6 +410,7 @@
   left: 0;
   width: 100%;
   overflow: visible;
+  -webkit-transition: 0s;
   transition: 0s;
 }
 .vue-treeselect--open-below:not(.vue-treeselect--append-to-body) .vue-treeselect__menu-container {
@@ -497,21 +539,27 @@
   height: 9px;
   color: #ccc;
   vertical-align: middle;
+  -webkit-transition: 200ms -webkit-transform cubic-bezier(0.19, 1, 0.22, 1);
+  transition: 200ms -webkit-transform cubic-bezier(0.19, 1, 0.22, 1);
   transition: 200ms transform cubic-bezier(0.19, 1, 0.22, 1);
-  -ms-transform: rotate(-90deg);
-      transform: rotateZ(-90deg);
+  transition: 200ms transform cubic-bezier(0.19, 1, 0.22, 1), 200ms -webkit-transform cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transform: rotateZ(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotateZ(-90deg);
 }
 .vue-treeselect__option-arrow-container:hover .vue-treeselect__option-arrow,
 .vue-treeselect--branch-nodes-disabled .vue-treeselect__option:hover .vue-treeselect__option-arrow {
   color: #616161;
 }
 .vue-treeselect__option-arrow--rotated {
-  -ms-transform: rotate(0);
-      transform: rotateZ(0);
+  -webkit-transform: rotateZ(0);
+      -ms-transform: rotate(0);
+          transform: rotateZ(0);
 }
 .vue-treeselect__option-arrow--rotated.vue-treeselect__option-arrow--prepare-enter {
-  -ms-transform: rotate(-90deg) !important;
-      transform: rotateZ(-90deg) !important;
+  -webkit-transform: rotateZ(-90deg) !important;
+      -ms-transform: rotate(-90deg) !important;
+          transform: rotateZ(-90deg) !important;
 }
 .vue-treeselect__label-container {
   display: table-cell;
@@ -543,6 +591,7 @@
   border-style: solid;
   border-radius: 2px;
   position: relative;
+  -webkit-transition: 200ms all cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: 200ms all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .vue-treeselect__check-mark,
@@ -553,6 +602,7 @@
   top: 1px;
   background-repeat: no-repeat;
   opacity: 0;
+  -webkit-transition: 200ms all ease;
   transition: 200ms all ease;
 }
 .vue-treeselect__minus-mark {
@@ -602,8 +652,9 @@
   height: 8px;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAQlBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////8IX9KGAAAAFXRSTlMA8u24NxILB+Tawb6jiH1zRz0xIQIIP3GUAAAAMklEQVQI1y3FtQEAMQDDQD+EGbz/qkEVOpyEOP6PudKjZNSXn4Jm2CKRdBKzSLsFWl8fMG0Bl6Jk1rMAAAAASUVORK5CYII=);
   background-size: 8px 8px;
-  -ms-transform: scaleY(0.125);
-      transform: scaleY(0.125);
+  -webkit-transform: scaleY(0.125);
+      -ms-transform: scaleY(0.125);
+          transform: scaleY(0.125);
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
   .vue-treeselect__check-mark {
@@ -622,8 +673,9 @@
 }
 .vue-treeselect__checkbox--checked > .vue-treeselect__check-mark {
   opacity: 1;
-  -ms-transform: scaleY(1);
-      transform: scaleY(1);
+  -webkit-transform: scaleY(1);
+      -ms-transform: scaleY(1);
+          transform: scaleY(1);
 }
 .vue-treeselect__checkbox--disabled .vue-treeselect__check-mark {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAP1BMVEUAAADj4+Pf39/h4eHh4eHh4eHk5OTh4eHg4ODi4uLh4eHh4eHg4ODh4eHh4eHg4ODh4eHh4eHp6en////h4eFqcyvUAAAAFHRSTlMAOQfy7bgS5NrBvqOIfXNHMSELAgQ/iFsAAAA2SURBVAjXY4AANjYIzcjMAaVFuBkY+RkEWERYmRjYRXjANAOfiIgIFxNIAa8IpxBEi6AwiAQAK2MBd7xY8csAAAAASUVORK5CYII=);
@@ -762,8 +814,9 @@
   position: absolute;
   content: '';
   background: #fff;
-  -ms-transform: rotate(45deg);
-      transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 .vue-treeselect__icon-error::before {
   width: 6px;
@@ -784,7 +837,8 @@
   width: 12px;
   height: 12px;
   text-align: center;
-  animation: 1.6s vue-treeselect-animation-rotate linear infinite;
+  -webkit-animation: 1.6s vue-treeselect-animation-rotate linear infinite;
+          animation: 1.6s vue-treeselect-animation-rotate linear infinite;
 }
 .vue-treeselect__icon-loader::before,
 .vue-treeselect__icon-loader::after {
@@ -797,14 +851,16 @@
   width: 100%;
   height: 100%;
   opacity: 0.6;
-  animation: 1.6s vue-treeselect-animation-bounce ease-in-out infinite;
+  -webkit-animation: 1.6s vue-treeselect-animation-bounce ease-in-out infinite;
+          animation: 1.6s vue-treeselect-animation-bounce ease-in-out infinite;
 }
 .vue-treeselect__icon-loader::before {
   background: #4670e4;
 }
 .vue-treeselect__icon-loader::after {
   background: #b3e5fc;
-  animation-delay: -0.8s;
+  -webkit-animation-delay: -0.8s;
+          animation-delay: -0.8s;
 }
 /**
  * Menu Portal

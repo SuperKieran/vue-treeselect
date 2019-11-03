@@ -552,14 +552,14 @@ function createAsyncOptionsStates() {
   return {
     isLoaded: false,
     isLoading: false,
-    loadingError: ''
+    loadingError: ""
   };
 }
 
 function stringifyOptionPropValue(value) {
-  if (typeof value === 'string') return value;
-  if (typeof value === 'number' && !isNaN_isNaN(value)) return value + '';
-  return '';
+  if (typeof value === "string") return value;
+  if (typeof value === "number" && !isNaN_isNaN(value)) return value + "";
+  return "";
 }
 
 function match(enableFuzzyMatch, needle, haystack) {
@@ -587,6 +587,10 @@ var instanceId = 0;
       default: false
     },
     alwaysOpen: {
+      type: Boolean,
+      default: false
+    },
+    defaultOpen: {
       type: Boolean,
       default: false
     },
@@ -648,7 +652,7 @@ var instanceId = 0;
     },
     clearAllText: {
       type: String,
-      default: ''
+      default: ""
     },
     clearOnSelect: {
       type: Boolean,
@@ -656,7 +660,7 @@ var instanceId = 0;
     },
     clearValueText: {
       type: String,
-      default: ''
+      default: ""
     },
     closeOnSelect: {
       type: Boolean,
@@ -675,7 +679,7 @@ var instanceId = 0;
     },
     delimiter: {
       type: String,
-      default: ','
+      default: ","
     },
     flattenSearchResults: {
       type: Boolean,
@@ -726,14 +730,14 @@ var instanceId = 0;
     },
     loadingText: {
       type: String,
-      default: 'Loading...'
+      default: "Loading..."
     },
     loadOptions: {
       type: Function
     },
     matchKeys: {
       type: Array,
-      default: constant_default()(['label'])
+      default: constant_default()(["label"])
     },
     maxHeight: {
       type: Number,
@@ -748,15 +752,15 @@ var instanceId = 0;
     },
     noChildrenText: {
       type: String,
-      default: 'No sub-options.'
+      default: "No sub-options."
     },
     noOptionsText: {
       type: String,
-      default: 'No options available.'
+      default: "No options available."
     },
     noResultsText: {
       type: String,
-      default: '未找到对应项目'
+      default: "未找到对应项目"
     },
     normalizer: {
       type: Function,
@@ -764,9 +768,9 @@ var instanceId = 0;
     },
     openDirection: {
       type: String,
-      default: 'auto',
+      default: "auto",
       validator: function validator(value) {
-        var acceptableValues = ['auto', 'top', 'bottom', 'above', 'below'];
+        var acceptableValues = ["auto", "top", "bottom", "above", "below"];
         return includes(acceptableValues, value);
       }
     },
@@ -783,7 +787,7 @@ var instanceId = 0;
     },
     placeholder: {
       type: String,
-      default: 'Select...'
+      default: "Select..."
     },
     required: {
       type: Boolean,
@@ -791,11 +795,11 @@ var instanceId = 0;
     },
     retryText: {
       type: String,
-      default: 'Retry?'
+      default: "Retry?"
     },
     retryTitle: {
       type: String,
-      default: 'Click to retry'
+      default: "Click to retry"
     },
     searchable: {
       type: Boolean,
@@ -807,7 +811,7 @@ var instanceId = 0;
     },
     searchPromptText: {
       type: String,
-      default: 'Type to search...'
+      default: "Type to search..."
     },
     showCount: {
       type: Boolean,
@@ -845,7 +849,7 @@ var instanceId = 0;
     },
     valueFormat: {
       type: String,
-      default: 'id'
+      default: "id"
     },
     zIndex: {
       type: [Number, String],
@@ -856,13 +860,13 @@ var instanceId = 0;
     return {
       trigger: {
         isFocused: false,
-        searchQuery: ''
+        searchQuery: ""
       },
       menu: {
         isOpen: false,
         current: null,
         lastScrollPosition: 0,
-        placement: 'bottom'
+        placement: "bottom"
       },
       forest: {
         normalizedOptions: [],
@@ -951,7 +955,7 @@ var instanceId = 0;
       return this.visibleOptionIds.length !== 0;
     },
     showCountOnSearchComputed: function showCountOnSearchComputed() {
-      return typeof this.showCountOnSearch === 'boolean' ? this.showCountOnSearch : this.showCount;
+      return typeof this.showCountOnSearch === "boolean" ? this.showCountOnSearch : this.showCount;
     },
     hasBranchNodes: function hasBranchNodes() {
       return this.forest.normalizedOptions.some(function (rootNode) {
@@ -977,7 +981,7 @@ var instanceId = 0;
     },
     internalValue: function internalValue(newValue, oldValue) {
       var hasChanged = quickDiff(newValue, oldValue);
-      if (hasChanged) this.$emit('input', this.getValue(), this.getInstanceId());
+      if (hasChanged) this.$emit("input", this.getValue(), this.getInstanceId());
     },
     matchKeys: function matchKeys() {
       this.initialize();
@@ -994,14 +998,14 @@ var instanceId = 0;
       deep: true,
       immediate: true
     },
-    'trigger.searchQuery': function triggerSearchQuery() {
+    "trigger.searchQuery": function triggerSearchQuery() {
       if (this.async) {
         this.handleRemoteSearch();
       } else {
         this.handleLocalSearch();
       }
 
-      this.$emit('search-change', this.trigger.searchQuery, this.getInstanceId());
+      this.$emit("search-change", this.trigger.searchQuery, this.getInstanceId());
     },
     value: function value() {
       var nodeIdsFromValue = this.extractCheckedNodeIdsFromValue();
@@ -1016,12 +1020,12 @@ var instanceId = 0;
       warning_warning(function () {
         return _this3.id == null;
       }, function () {
-        return '`id` prop is deprecated. Use `instanceId` instead.';
+        return "`id` prop is deprecated. Use `instanceId` instead.";
       });
       warning_warning(function () {
         return !_this3.autofocus;
       }, function () {
-        return '`autofocus` prop is deprecated. Use `autoFocus` instead.';
+        return "`autofocus` prop is deprecated. Use `autoFocus` instead.";
       });
       warning_warning(function () {
         return _this3.async ? _this3.searchable : true;
@@ -1046,7 +1050,7 @@ var instanceId = 0;
       }
 
       if (!this.flat) {
-        var propNames = ['autoSelectAncestors', 'autoSelectDescendants', 'autoDeselectAncestors', 'autoDeselectDescendants'];
+        var propNames = ["autoSelectAncestors", "autoSelectDescendants", "autoDeselectAncestors", "autoDeselectDescendants"];
         propNames.forEach(function (propName) {
           warning_warning(function () {
             return !_this3[propName];
@@ -1078,7 +1082,7 @@ var instanceId = 0;
     getValue: function getValue() {
       var _this4 = this;
 
-      if (this.valueFormat === 'id') {
+      if (this.valueFormat === "id") {
         return this.multiple ? this.internalValue.slice() : this.internalValue[0];
       }
 
@@ -1121,7 +1125,7 @@ var instanceId = 0;
 
       if (this.value == null) return [];
 
-      if (this.valueFormat === 'id') {
+      if (this.valueFormat === "id") {
         return this.multiple ? this.value.slice() : [this.value];
       }
 
@@ -1138,7 +1142,7 @@ var instanceId = 0;
         id: id
       };
 
-      if (this.valueFormat === 'id') {
+      if (this.valueFormat === "id") {
         return defaultNode;
       }
 
@@ -1263,13 +1267,13 @@ var instanceId = 0;
     },
     toggleClickOutsideEvent: function toggleClickOutsideEvent(enabled) {
       if (enabled) {
-        document.addEventListener('mousedown', this.handleClickOutside, false);
+        document.addEventListener("mousedown", this.handleClickOutside, false);
       } else {
-        document.removeEventListener('mousedown', this.handleClickOutside, false);
+        document.removeEventListener("mousedown", this.handleClickOutside, false);
       }
     },
     getValueContainer: function getValueContainer() {
-      return this.$refs.control.$refs['value-container'];
+      return this.$refs.control.$refs["value-container"];
     },
     getInput: function getInput() {
       return this.getValueContainer().$refs.input;
@@ -1301,7 +1305,6 @@ var instanceId = 0;
     handleClickOutside: function handleClickOutside(evt) {
       if (this.$refs.wrapper && !this.$refs.wrapper.contains(evt.target)) {
         this.blurInput();
-        this.closeMenu();
       }
     },
     handleLocalSearch: function handleLocalSearch() {
@@ -1333,7 +1336,7 @@ var instanceId = 0;
         }
       });
       var lowerCasedSearchQuery = searchQuery.trim().toLocaleLowerCase();
-      var splitSearchQuery = lowerCasedSearchQuery.replace(/\s+/g, ' ').split(' ');
+      var splitSearchQuery = lowerCasedSearchQuery.replace(/\s+/g, " ").split(" ");
       this.traverseAllNodesDFS(function (node) {
         if (_this11.searchNested && splitSearchQuery.length > 1) {
           node.isMatched = splitSearchQuery.every(function (filterValue) {
@@ -1379,7 +1382,7 @@ var instanceId = 0;
         _this12.resetHighlightedOptionWhenNecessary(true);
       };
 
-      if ((searchQuery === '' || this.cacheOptions) && entry.isLoaded) {
+      if ((searchQuery === "" || this.cacheOptions) && entry.isLoaded) {
         return done();
       }
 
@@ -1394,7 +1397,7 @@ var instanceId = 0;
         start: function start() {
           entry.isLoading = true;
           entry.isLoaded = false;
-          entry.loadingError = '';
+          entry.loadingError = "";
         },
         succeed: function succeed(options) {
           entry.isLoaded = true;
@@ -1426,7 +1429,7 @@ var instanceId = 0;
         deep: true
       });
 
-      if (searchQuery === '') {
+      if (searchQuery === "") {
         if (Array.isArray(this.defaultOptions)) {
           entry.options = this.defaultOptions;
           entry.isLoaded = true;
@@ -1465,7 +1468,7 @@ var instanceId = 0;
     getMenu: function getMenu() {
       var ref = this.appendToBody ? this.$refs.portal.portalTarget : this;
       var $menu = ref.$refs.menu.$refs.menu;
-      return $menu && $menu.nodeName !== '#comment' ? $menu : null;
+      return $menu && $menu.nodeName !== "#comment" ? $menu : null;
     },
     setCurrentHighlightedOption: function setCurrentHighlightedOption(node) {
       var _this14 = this;
@@ -1526,7 +1529,7 @@ var instanceId = 0;
       this.setCurrentHighlightedOption(this.getNode(last));
     },
     resetSearchQuery: function resetSearchQuery() {
-      this.trigger.searchQuery = '';
+      this.trigger.searchQuery = "";
     },
     closeMenu: function closeMenu() {
       if (!this.menu.isOpen || !this.disabled && this.alwaysOpen) return;
@@ -1534,7 +1537,7 @@ var instanceId = 0;
       this.menu.isOpen = false;
       this.toggleClickOutsideEvent(false);
       this.resetSearchQuery();
-      this.$emit('close', this.getValue(), this.getInstanceId());
+      this.$emit("close", this.getValue(), this.getInstanceId());
     },
     openMenu: function openMenu() {
       if (this.disabled || this.menu.isOpen) return;
@@ -1543,7 +1546,7 @@ var instanceId = 0;
       this.$nextTick(this.restoreMenuScrollPosition);
       if (!this.options && !this.async) this.loadRootOptions();
       this.toggleClickOutsideEvent(true);
-      this.$emit('open', this.getInstanceId());
+      this.$emit("open", this.getInstanceId());
     },
     toggleMenu: function toggleMenu() {
       if (this.menu.isOpen) {
@@ -1627,70 +1630,70 @@ var instanceId = 0;
           return _objectSpread({}, prev, defineProperty_default()({}, key, stringifyOptionPropValue(node[key]).toLocaleLowerCase()));
         }, {});
 
-        var nestedSearchLabel = isRootNode ? lowerCased.label : parentNode.nestedSearchLabel + ' ' + lowerCased.label;
+        var nestedSearchLabel = isRootNode ? lowerCased.label : parentNode.nestedSearchLabel + " " + lowerCased.label;
 
         var normalized = _this16.$set(_this16.forest.nodeMap, id, createMap());
 
-        _this16.$set(normalized, 'id', id);
+        _this16.$set(normalized, "id", id);
 
-        _this16.$set(normalized, 'label', label);
+        _this16.$set(normalized, "label", label);
 
-        _this16.$set(normalized, 'level', level);
+        _this16.$set(normalized, "level", level);
 
-        _this16.$set(normalized, 'ancestors', isRootNode ? [] : [parentNode].concat(parentNode.ancestors));
+        _this16.$set(normalized, "ancestors", isRootNode ? [] : [parentNode].concat(parentNode.ancestors));
 
-        _this16.$set(normalized, 'index', (isRootNode ? [] : parentNode.index).concat(index));
+        _this16.$set(normalized, "index", (isRootNode ? [] : parentNode.index).concat(index));
 
-        _this16.$set(normalized, 'parentNode', parentNode);
+        _this16.$set(normalized, "parentNode", parentNode);
 
-        _this16.$set(normalized, 'lowerCased', lowerCased);
+        _this16.$set(normalized, "lowerCased", lowerCased);
 
-        _this16.$set(normalized, 'nestedSearchLabel', nestedSearchLabel);
+        _this16.$set(normalized, "nestedSearchLabel", nestedSearchLabel);
 
-        _this16.$set(normalized, 'isDisabled', isDisabled);
+        _this16.$set(normalized, "isDisabled", isDisabled);
 
-        _this16.$set(normalized, 'isNew', isNew);
+        _this16.$set(normalized, "isNew", isNew);
 
-        _this16.$set(normalized, 'isMatched', false);
+        _this16.$set(normalized, "isMatched", false);
 
-        _this16.$set(normalized, 'isHighlighted', false);
+        _this16.$set(normalized, "isHighlighted", false);
 
-        _this16.$set(normalized, 'isBranch', isBranch);
+        _this16.$set(normalized, "isBranch", isBranch);
 
-        _this16.$set(normalized, 'isLeaf', isLeaf);
+        _this16.$set(normalized, "isLeaf", isLeaf);
 
-        _this16.$set(normalized, 'isRootNode', isRootNode);
+        _this16.$set(normalized, "isRootNode", isRootNode);
 
-        _this16.$set(normalized, 'raw', raw);
+        _this16.$set(normalized, "raw", raw);
 
         if (isBranch) {
           var _this16$$set;
 
           var isLoaded = Array.isArray(children);
 
-          _this16.$set(normalized, 'childrenStates', _objectSpread({}, createAsyncOptionsStates(), {
+          _this16.$set(normalized, "childrenStates", _objectSpread({}, createAsyncOptionsStates(), {
             isLoaded: isLoaded
           }));
 
-          _this16.$set(normalized, 'isExpanded', typeof isDefaultExpanded === 'boolean' ? isDefaultExpanded : level < _this16.defaultExpandLevel);
+          _this16.$set(normalized, "isExpanded", typeof isDefaultExpanded === "boolean" ? isDefaultExpanded : level < _this16.defaultExpandLevel);
 
-          _this16.$set(normalized, 'hasMatchedDescendants', false);
+          _this16.$set(normalized, "hasMatchedDescendants", false);
 
-          _this16.$set(normalized, 'hasDisabledDescendants', false);
+          _this16.$set(normalized, "hasDisabledDescendants", false);
 
-          _this16.$set(normalized, 'isExpandedOnSearch', false);
+          _this16.$set(normalized, "isExpandedOnSearch", false);
 
-          _this16.$set(normalized, 'showAllChildrenOnSearch', false);
+          _this16.$set(normalized, "showAllChildrenOnSearch", false);
 
-          _this16.$set(normalized, 'count', (_this16$$set = {}, defineProperty_default()(_this16$$set, ALL_CHILDREN, 0), defineProperty_default()(_this16$$set, ALL_DESCENDANTS, 0), defineProperty_default()(_this16$$set, LEAF_CHILDREN, 0), defineProperty_default()(_this16$$set, LEAF_DESCENDANTS, 0), _this16$$set));
+          _this16.$set(normalized, "count", (_this16$$set = {}, defineProperty_default()(_this16$$set, ALL_CHILDREN, 0), defineProperty_default()(_this16$$set, ALL_DESCENDANTS, 0), defineProperty_default()(_this16$$set, LEAF_CHILDREN, 0), defineProperty_default()(_this16$$set, LEAF_DESCENDANTS, 0), _this16$$set));
 
-          _this16.$set(normalized, 'children', isLoaded ? _this16.normalize(normalized, children, prevNodeMap) : []);
+          _this16.$set(normalized, "children", isLoaded ? _this16.normalize(normalized, children, prevNodeMap) : []);
 
           if (isDefaultExpanded === true) normalized.ancestors.forEach(function (ancestor) {
             ancestor.isExpanded = true;
           });
 
-          if (!isLoaded && typeof _this16.loadOptions !== 'function') {
+          if (!isLoaded && typeof _this16.loadOptions !== "function") {
             warning_warning(function () {
               return false;
             }, function () {
@@ -1757,7 +1760,7 @@ var instanceId = 0;
         },
         start: function start() {
           _this17.rootOptionsStates.isLoading = true;
-          _this17.rootOptionsStates.loadingError = '';
+          _this17.rootOptionsStates.loadingError = "";
         },
         succeed: function succeed() {
           _this17.rootOptionsStates.isLoaded = true;
@@ -1789,7 +1792,7 @@ var instanceId = 0;
         },
         start: function start() {
           _this18.getNode(id).childrenStates.isLoading = true;
-          _this18.getNode(id).childrenStates.loadingError = '';
+          _this18.getNode(id).childrenStates.loadingError = "";
         },
         succeed: function succeed() {
           _this18.getNode(id).childrenStates.isLoaded = true;
@@ -1856,7 +1859,7 @@ var instanceId = 0;
       warning_warning(function () {
         return !(node.children === undefined && node.isBranch === true);
       }, function () {
-        return 'Are you meant to declare an unloaded branch node? ' + '`isBranch: true` is no longer supported, please use `children: null` instead.';
+        return "Are you meant to declare an unloaded branch node? " + "`isBranch: true` is no longer supported, please use `children: null` instead.";
       });
     },
     select: function select(node) {
@@ -1879,9 +1882,9 @@ var instanceId = 0;
       this.buildForestState();
 
       if (nextState) {
-        this.$emit('select', node.raw, this.getInstanceId());
+        this.$emit("select", node.raw, this.getInstanceId());
       } else {
-        this.$emit('deselect', node.raw, this.getInstanceId());
+        this.$emit("deselect", node.raw, this.getInstanceId());
       }
 
       if (this.localSearch.active && nextState && (this.single || this.clearOnSelect)) {
@@ -2031,7 +2034,7 @@ var instanceId = 0;
   mounted: function mounted() {
     if (this.autoFocus || this.autofocus) this.focusInput();
     if (!this.options && !this.async && this.autoLoadRootOptions) this.loadRootOptions();
-    if (this.alwaysOpen) this.openMenu();
+    if (this.alwaysOpen || this.defaultOpen) this.openMenu();
     if (this.async && this.defaultOptions) this.handleRemoteSearch();
   },
   destroyed: function destroyed() {

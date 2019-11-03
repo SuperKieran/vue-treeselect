@@ -1,4 +1,4 @@
-import fuzzysearch from 'fuzzysearch';
+import fuzzysearch from "fuzzysearch";
 
 import {
   warning,
@@ -15,7 +15,7 @@ import {
   includes,
   find,
   removeFromArray
-} from '../utils';
+} from "../utils";
 
 import {
   NO_PARENT_NODE,
@@ -36,7 +36,7 @@ import {
   ORDER_SELECTED,
   LEVEL,
   INDEX
-} from '../constants';
+} from "../constants";
 
 function sortValueByIndex(a, b) {
   let i = 0;
@@ -56,15 +56,15 @@ function createAsyncOptionsStates() {
   return {
     isLoaded: false,
     isLoading: false,
-    loadingError: ''
+    loadingError: ""
   };
 }
 
 function stringifyOptionPropValue(value) {
-  if (typeof value === 'string') return value;
-  if (typeof value === 'number' && !isNaN(value)) return value + '';
+  if (typeof value === "string") return value;
+  if (typeof value === "number" && !isNaN(value)) return value + "";
   // istanbul ignore next
-  return '';
+  return "";
 }
 
 function match(enableFuzzyMatch, needle, haystack) {
@@ -110,6 +110,14 @@ export default {
      * Whether the menu should be always open.
      */
     alwaysOpen: {
+      type: Boolean,
+      default: false
+    },
+
+    /**
+     *  Whether the menu should be default open.
+     */
+    defaultOpen: {
       type: Boolean,
       default: false
     },
@@ -233,7 +241,7 @@ export default {
      */
     clearAllText: {
       type: String,
-      default: ''
+      default: ""
     },
 
     /**
@@ -251,7 +259,7 @@ export default {
      */
     clearValueText: {
       type: String,
-      default: ''
+      default: ""
     },
 
     /**
@@ -294,7 +302,7 @@ export default {
      */
     delimiter: {
       type: String,
-      default: ','
+      default: ","
     },
 
     /**
@@ -403,7 +411,7 @@ export default {
      */
     loadingText: {
       type: String,
-      default: 'Loading...'
+      default: "Loading..."
     },
 
     /**
@@ -419,7 +427,7 @@ export default {
      */
     matchKeys: {
       type: Array,
-      default: constant(['label'])
+      default: constant(["label"])
     },
 
     /**
@@ -450,7 +458,7 @@ export default {
      */
     noChildrenText: {
       type: String,
-      default: 'No sub-options.'
+      default: "No sub-options."
     },
 
     /**
@@ -458,7 +466,7 @@ export default {
      */
     noOptionsText: {
       type: String,
-      default: 'No options available.'
+      default: "No options available."
     },
 
     /**
@@ -466,7 +474,7 @@ export default {
      */
     noResultsText: {
       type: String,
-      default: '未找到对应项目'
+      default: "未找到对应项目"
     },
 
     /**
@@ -492,9 +500,9 @@ export default {
      */
     openDirection: {
       type: String,
-      default: 'auto',
+      default: "auto",
       validator(value) {
-        const acceptableValues = ['auto', 'top', 'bottom', 'above', 'below'];
+        const acceptableValues = ["auto", "top", "bottom", "above", "below"];
         return includes(acceptableValues, value);
       }
     },
@@ -528,7 +536,7 @@ export default {
      */
     placeholder: {
       type: String,
-      default: 'Select...'
+      default: "Select..."
     },
 
     /**
@@ -544,7 +552,7 @@ export default {
      */
     retryText: {
       type: String,
-      default: 'Retry?'
+      default: "Retry?"
     },
 
     /**
@@ -552,7 +560,7 @@ export default {
      */
     retryTitle: {
       type: String,
-      default: 'Click to retry'
+      default: "Click to retry"
     },
 
     /**
@@ -576,7 +584,7 @@ export default {
      */
     searchPromptText: {
       type: String,
-      default: 'Type to search...'
+      default: "Type to search..."
     },
 
     /**
@@ -681,7 +689,7 @@ export default {
      */
     valueFormat: {
       type: String,
-      default: 'id'
+      default: "id"
     },
 
     /**
@@ -699,7 +707,7 @@ export default {
         // Is the control focused?
         isFocused: false,
         // User entered search query - value of the input.
-        searchQuery: ''
+        searchQuery: ""
       },
 
       menu: {
@@ -710,7 +718,7 @@ export default {
         // The scroll position before last menu closing.
         lastScrollPosition: 0,
         // Which direction to open the menu.
-        placement: 'bottom'
+        placement: "bottom"
       },
 
       forest: {
@@ -863,7 +871,7 @@ export default {
       // Vue doesn't allow setting default prop value based on another prop value.
       // So use computed property as a workaround.
       // https://github.com/vuejs/vue/issues/6358
-      return typeof this.showCountOnSearch === 'boolean'
+      return typeof this.showCountOnSearch === "boolean"
         ? this.showCountOnSearch
         : this.showCount;
     },
@@ -907,7 +915,7 @@ export default {
       // Vue would trigger this watcher when `newValue` and `oldValue` are shallow-equal.
       // We emit the `input` event only when the value actually changes.
       if (hasChanged)
-        this.$emit('input', this.getValue(), this.getInstanceId());
+        this.$emit("input", this.getValue(), this.getInstanceId());
     },
 
     matchKeys() {
@@ -932,7 +940,7 @@ export default {
       immediate: true
     },
 
-    'trigger.searchQuery'() {
+    "trigger.searchQuery"() {
       if (this.async) {
         this.handleRemoteSearch();
       } else {
@@ -940,7 +948,7 @@ export default {
       }
 
       this.$emit(
-        'search-change',
+        "search-change",
         this.trigger.searchQuery,
         this.getInstanceId()
       );
@@ -957,12 +965,12 @@ export default {
     verifyProps() {
       warning(
         () => this.id == null,
-        () => '`id` prop is deprecated. Use `instanceId` instead.'
+        () => "`id` prop is deprecated. Use `instanceId` instead."
       );
 
       warning(
         () => !this.autofocus,
-        () => '`autofocus` prop is deprecated. Use `autoFocus` instead.'
+        () => "`autofocus` prop is deprecated. Use `autoFocus` instead."
       );
 
       warning(
@@ -989,10 +997,10 @@ export default {
 
       if (!this.flat) {
         const propNames = [
-          'autoSelectAncestors',
-          'autoSelectDescendants',
-          'autoDeselectAncestors',
-          'autoDeselectDescendants'
+          "autoSelectAncestors",
+          "autoSelectDescendants",
+          "autoDeselectAncestors",
+          "autoDeselectDescendants"
         ];
 
         propNames.forEach(propName => {
@@ -1040,7 +1048,7 @@ export default {
     },
 
     getValue() {
-      if (this.valueFormat === 'id') {
+      if (this.valueFormat === "id") {
         return this.multiple
           ? this.internalValue.slice()
           : this.internalValue[0];
@@ -1089,7 +1097,7 @@ export default {
     extractCheckedNodeIdsFromValue() {
       if (this.value == null) return [];
 
-      if (this.valueFormat === 'id') {
+      if (this.valueFormat === "id") {
         return this.multiple ? this.value.slice() : [this.value];
       }
 
@@ -1101,7 +1109,7 @@ export default {
     extractNodeFromValue(id) {
       const defaultNode = { id };
 
-      if (this.valueFormat === 'id') {
+      if (this.valueFormat === "id") {
         return defaultNode;
       }
 
@@ -1244,10 +1252,10 @@ export default {
 
     toggleClickOutsideEvent(enabled) {
       if (enabled) {
-        document.addEventListener('mousedown', this.handleClickOutside, false);
+        document.addEventListener("mousedown", this.handleClickOutside, false);
       } else {
         document.removeEventListener(
-          'mousedown',
+          "mousedown",
           this.handleClickOutside,
           false
         );
@@ -1255,7 +1263,7 @@ export default {
     },
 
     getValueContainer() {
-      return this.$refs.control.$refs['value-container'];
+      return this.$refs.control.$refs["value-container"];
     },
 
     getInput() {
@@ -1301,7 +1309,7 @@ export default {
       // istanbul ignore else
       if (this.$refs.wrapper && !this.$refs.wrapper.contains(evt.target)) {
         this.blurInput();
-        this.closeMenu();
+        // this.closeMenu();
       }
     },
 
@@ -1337,8 +1345,8 @@ export default {
 
       const lowerCasedSearchQuery = searchQuery.trim().toLocaleLowerCase();
       const splitSearchQuery = lowerCasedSearchQuery
-        .replace(/\s+/g, ' ')
-        .split(' ');
+        .replace(/\s+/g, " ")
+        .split(" ");
       this.traverseAllNodesDFS(node => {
         if (this.searchNested && splitSearchQuery.length > 1) {
           node.isMatched = splitSearchQuery.every(filterValue =>
@@ -1393,7 +1401,7 @@ export default {
         this.resetHighlightedOptionWhenNecessary(true);
       };
 
-      if ((searchQuery === '' || this.cacheOptions) && entry.isLoaded) {
+      if ((searchQuery === "" || this.cacheOptions) && entry.isLoaded) {
         return done();
       }
 
@@ -1406,7 +1414,7 @@ export default {
         start: () => {
           entry.isLoading = true;
           entry.isLoaded = false;
-          entry.loadingError = '';
+          entry.loadingError = "";
         },
         succeed: options => {
           entry.isLoaded = true;
@@ -1441,7 +1449,7 @@ export default {
         { deep: true }
       );
 
-      if (searchQuery === '') {
+      if (searchQuery === "") {
         if (Array.isArray(this.defaultOptions)) {
           entry.options = this.defaultOptions;
           entry.isLoaded = true;
@@ -1500,7 +1508,7 @@ export default {
     getMenu() {
       const ref = this.appendToBody ? this.$refs.portal.portalTarget : this;
       const $menu = ref.$refs.menu.$refs.menu;
-      return $menu && $menu.nodeName !== '#comment' ? $menu : null;
+      return $menu && $menu.nodeName !== "#comment" ? $menu : null;
     },
 
     setCurrentHighlightedOption(node, scroll = true) {
@@ -1580,7 +1588,7 @@ export default {
     },
 
     resetSearchQuery() {
-      this.trigger.searchQuery = '';
+      this.trigger.searchQuery = "";
     },
 
     closeMenu() {
@@ -1589,7 +1597,7 @@ export default {
       this.menu.isOpen = false;
       this.toggleClickOutsideEvent(false);
       this.resetSearchQuery();
-      this.$emit('close', this.getValue(), this.getInstanceId());
+      this.$emit("close", this.getValue(), this.getInstanceId());
     },
 
     openMenu() {
@@ -1599,7 +1607,7 @@ export default {
       this.$nextTick(this.restoreMenuScrollPosition);
       if (!this.options && !this.async) this.loadRootOptions();
       this.toggleClickOutsideEvent(true);
-      this.$emit('open', this.getInstanceId());
+      this.$emit("open", this.getInstanceId());
     },
 
     toggleMenu() {
@@ -1685,53 +1693,53 @@ export default {
           );
           const nestedSearchLabel = isRootNode
             ? lowerCased.label
-            : parentNode.nestedSearchLabel + ' ' + lowerCased.label;
+            : parentNode.nestedSearchLabel + " " + lowerCased.label;
 
           const normalized = this.$set(this.forest.nodeMap, id, createMap());
-          this.$set(normalized, 'id', id);
-          this.$set(normalized, 'label', label);
-          this.$set(normalized, 'level', level);
+          this.$set(normalized, "id", id);
+          this.$set(normalized, "label", label);
+          this.$set(normalized, "level", level);
           this.$set(
             normalized,
-            'ancestors',
+            "ancestors",
             isRootNode ? [] : [parentNode].concat(parentNode.ancestors)
           );
           this.$set(
             normalized,
-            'index',
+            "index",
             (isRootNode ? [] : parentNode.index).concat(index)
           );
-          this.$set(normalized, 'parentNode', parentNode);
-          this.$set(normalized, 'lowerCased', lowerCased);
-          this.$set(normalized, 'nestedSearchLabel', nestedSearchLabel);
-          this.$set(normalized, 'isDisabled', isDisabled);
-          this.$set(normalized, 'isNew', isNew);
-          this.$set(normalized, 'isMatched', false);
-          this.$set(normalized, 'isHighlighted', false);
-          this.$set(normalized, 'isBranch', isBranch);
-          this.$set(normalized, 'isLeaf', isLeaf);
-          this.$set(normalized, 'isRootNode', isRootNode);
-          this.$set(normalized, 'raw', raw);
+          this.$set(normalized, "parentNode", parentNode);
+          this.$set(normalized, "lowerCased", lowerCased);
+          this.$set(normalized, "nestedSearchLabel", nestedSearchLabel);
+          this.$set(normalized, "isDisabled", isDisabled);
+          this.$set(normalized, "isNew", isNew);
+          this.$set(normalized, "isMatched", false);
+          this.$set(normalized, "isHighlighted", false);
+          this.$set(normalized, "isBranch", isBranch);
+          this.$set(normalized, "isLeaf", isLeaf);
+          this.$set(normalized, "isRootNode", isRootNode);
+          this.$set(normalized, "raw", raw);
 
           if (isBranch) {
             const isLoaded = Array.isArray(children);
 
-            this.$set(normalized, 'childrenStates', {
+            this.$set(normalized, "childrenStates", {
               ...createAsyncOptionsStates(),
               isLoaded
             });
             this.$set(
               normalized,
-              'isExpanded',
-              typeof isDefaultExpanded === 'boolean'
+              "isExpanded",
+              typeof isDefaultExpanded === "boolean"
                 ? isDefaultExpanded
                 : level < this.defaultExpandLevel
             );
-            this.$set(normalized, 'hasMatchedDescendants', false);
-            this.$set(normalized, 'hasDisabledDescendants', false);
-            this.$set(normalized, 'isExpandedOnSearch', false);
-            this.$set(normalized, 'showAllChildrenOnSearch', false);
-            this.$set(normalized, 'count', {
+            this.$set(normalized, "hasMatchedDescendants", false);
+            this.$set(normalized, "hasDisabledDescendants", false);
+            this.$set(normalized, "isExpandedOnSearch", false);
+            this.$set(normalized, "showAllChildrenOnSearch", false);
+            this.$set(normalized, "count", {
               [ALL_CHILDREN]: 0,
               [ALL_DESCENDANTS]: 0,
               [LEAF_CHILDREN]: 0,
@@ -1739,7 +1747,7 @@ export default {
             });
             this.$set(
               normalized,
-              'children',
+              "children",
               isLoaded ? this.normalize(normalized, children, prevNodeMap) : []
             );
 
@@ -1748,7 +1756,7 @@ export default {
                 ancestor.isExpanded = true;
               });
 
-            if (!isLoaded && typeof this.loadOptions !== 'function') {
+            if (!isLoaded && typeof this.loadOptions !== "function") {
               warning(
                 () => false,
                 () =>
@@ -1820,7 +1828,7 @@ export default {
         },
         start: () => {
           this.rootOptionsStates.isLoading = true;
-          this.rootOptionsStates.loadingError = '';
+          this.rootOptionsStates.loadingError = "";
         },
         succeed: () => {
           this.rootOptionsStates.isLoaded = true;
@@ -1858,7 +1866,7 @@ export default {
         },
         start: () => {
           this.getNode(id).childrenStates.isLoading = true;
-          this.getNode(id).childrenStates.loadingError = '';
+          this.getNode(id).childrenStates.loadingError = "";
         },
         succeed: () => {
           this.getNode(id).childrenStates.isLoaded = true;
@@ -1932,9 +1940,7 @@ export default {
           `Detected duplicate presence of node id ${JSON.stringify(
             node.id
           )}. ` +
-          `Their labels are "${this.forest.nodeMap[node.id].label}" and "${
-            node.label
-          }" respectively.`
+          `Their labels are "${this.forest.nodeMap[node.id].label}" and "${node.label}" respectively.`
       );
     },
 
@@ -1942,8 +1948,8 @@ export default {
       warning(
         () => !(node.children === undefined && node.isBranch === true),
         () =>
-          'Are you meant to declare an unloaded branch node? ' +
-          '`isBranch: true` is no longer supported, please use `children: null` instead.'
+          "Are you meant to declare an unloaded branch node? " +
+          "`isBranch: true` is no longer supported, please use `children: null` instead."
       );
     },
 
@@ -1970,9 +1976,9 @@ export default {
       this.buildForestState();
 
       if (nextState) {
-        this.$emit('select', node.raw, this.getInstanceId());
+        this.$emit("select", node.raw, this.getInstanceId());
       } else {
-        this.$emit('deselect', node.raw, this.getInstanceId());
+        this.$emit("deselect", node.raw, this.getInstanceId());
       }
 
       if (
@@ -2151,7 +2157,7 @@ export default {
     if (this.autoFocus || this.autofocus) this.focusInput();
     if (!this.options && !this.async && this.autoLoadRootOptions)
       this.loadRootOptions();
-    if (this.alwaysOpen) this.openMenu();
+    if (this.alwaysOpen || this.defaultOpen) this.openMenu();
     if (this.async && this.defaultOptions) this.handleRemoteSearch();
   },
 
