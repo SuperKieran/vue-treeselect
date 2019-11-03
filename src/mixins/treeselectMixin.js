@@ -900,8 +900,9 @@ export default {
 
     disabled(newValue) {
       // force close the menu after disabling the control
-      if (newValue && this.menu.isOpen) this.closeMenu();
-      else if (!newValue && !this.menu.isOpen && this.alwaysOpen)
+      if (newValue && this.menu.isOpen) {
+        this.closeMenu();
+      } else if (!newValue && !this.menu.isOpen && this.alwaysOpen)
         this.openMenu();
     },
 

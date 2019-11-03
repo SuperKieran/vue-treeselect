@@ -974,7 +974,9 @@ var instanceId = 0;
       this.initialize();
     },
     disabled: function disabled(newValue) {
-      if (newValue && this.menu.isOpen) this.closeMenu();else if (!newValue && !this.menu.isOpen && this.alwaysOpen) this.openMenu();
+      if (newValue && this.menu.isOpen) {
+        this.closeMenu();
+      } else if (!newValue && !this.menu.isOpen && this.alwaysOpen) this.openMenu();
     },
     flat: function flat() {
       this.initialize();
@@ -2201,12 +2203,12 @@ var external_babel_helper_vue_jsx_merge_props_default = /*#__PURE__*/__webpack_r
 
 var keysThatRequireMenuBeingOpen = [KEY_CODES.ENTER, KEY_CODES.END, KEY_CODES.HOME, KEY_CODES.ARROW_LEFT, KEY_CODES.ARROW_UP, KEY_CODES.ARROW_RIGHT, KEY_CODES.ARROW_DOWN];
 /* harmony default export */ var Inputvue_type_script_lang_js_ = ({
-  name: 'vue-treeselect--input',
-  inject: ['instance'],
+  name: "vue-treeselect--input",
+  inject: ["instance"],
   data: function data() {
     return {
       inputWidth: MIN_INPUT_WIDTH,
-      value: ''
+      value: ""
     };
   },
   computed: {
@@ -2221,7 +2223,7 @@ var keysThatRequireMenuBeingOpen = [KEY_CODES.ENTER, KEY_CODES.END, KEY_CODES.HO
     }
   },
   watch: {
-    'instance.trigger.searchQuery': function instanceTriggerSearchQuery(newValue) {
+    "instance.trigger.searchQuery": function instanceTriggerSearchQuery(newValue) {
       this.value = newValue;
     },
     value: function value() {
@@ -2238,7 +2240,7 @@ var keysThatRequireMenuBeingOpen = [KEY_CODES.ENTER, KEY_CODES.END, KEY_CODES.HO
     clear: function clear() {
       this.onInput({
         target: {
-          value: ''
+          value: ""
         }
       });
     },
@@ -2263,9 +2265,6 @@ var keysThatRequireMenuBeingOpen = [KEY_CODES.ENTER, KEY_CODES.END, KEY_CODES.HO
       if (document.activeElement === instance.$refs.menu) {
         return this.focus();
       }
-
-      instance.trigger.isFocused = false;
-      instance.closeMenu();
     },
     onInput: function onInput(evt) {
       var value = evt.target.value;
@@ -2280,7 +2279,7 @@ var keysThatRequireMenuBeingOpen = [KEY_CODES.ENTER, KEY_CODES.END, KEY_CODES.HO
     },
     onKeyDown: function onKeyDown(evt) {
       var instance = this.instance;
-      var key = 'which' in evt ? evt.which : evt.keyCode;
+      var key = "which" in evt ? evt.which : evt.keyCode;
       if (evt.ctrlKey || evt.shiftKey || evt.altKey || evt.metaKey) return;
 
       if (!instance.menu.isOpen && includes(keysThatRequireMenuBeingOpen, key)) {
@@ -2411,7 +2410,7 @@ var keysThatRequireMenuBeingOpen = [KEY_CODES.ENTER, KEY_CODES.END, KEY_CODES.HO
             blur: this.onBlur,
             keydown: this.onKeyDown
           },
-          ref: 'input'
+          ref: "input"
         });
       }
 
@@ -3261,19 +3260,19 @@ var Option_component = normalizeComponent(
 
 
 var directionMap = {
-  top: 'top',
-  bottom: 'bottom',
-  above: 'top',
-  below: 'bottom'
+  top: "top",
+  bottom: "bottom",
+  above: "top",
+  below: "bottom"
 };
 /* harmony default export */ var Menuvue_type_script_lang_js_ = ({
-  name: 'vue-treeselect--menu',
-  inject: ['instance'],
+  name: "vue-treeselect--menu",
+  inject: ["instance"],
   computed: {
     menuStyle: function menuStyle() {
       var instance = this.instance;
       return {
-        maxHeight: instance.maxHeight + 'px'
+        maxHeight: instance.maxHeight + "px"
       };
     },
     menuContainerStyle: function menuContainerStyle() {
@@ -3284,7 +3283,7 @@ var directionMap = {
     }
   },
   watch: {
-    'instance.menu.isOpen': function instanceMenuIsOpen(newValue) {
+    "instance.menu.isOpen": function instanceMenuIsOpen(newValue) {
       if (newValue) {
         this.$nextTick(this.onMenuOpen);
       } else {
@@ -3348,7 +3347,7 @@ var directionMap = {
     renderAsyncSearchMenuInner: function renderAsyncSearchMenuInner() {
       var instance = this.instance;
       var entry = instance.getRemoteSearchEntry();
-      var shouldShowSearchPromptTip = instance.trigger.searchQuery === '' && !instance.defaultOptions;
+      var shouldShowSearchPromptTip = instance.trigger.searchQuery === "" && !instance.defaultOptions;
       var shouldShowNoResultsTip = shouldShowSearchPromptTip ? false : entry.isLoaded && entry.options.length === 0;
 
       if (shouldShowSearchPromptTip) {
@@ -3478,15 +3477,15 @@ var directionMap = {
       var hasEnoughSpaceBelow = spaceBelow > menuHeight + MENU_BUFFER;
       var hasEnoughSpaceAbove = spaceAbove > menuHeight + MENU_BUFFER;
 
-      if (!isControlInViewport) {
-        instance.closeMenu();
-      } else if (instance.openDirection !== 'auto') {
+      if (instance.openDirection !== "auto") {
         instance.menu.placement = directionMap[instance.openDirection];
       } else if (hasEnoughSpaceBelow || !hasEnoughSpaceAbove) {
-        instance.menu.placement = 'bottom';
+        instance.menu.placement = "bottom";
       } else {
-        instance.menu.placement = 'top';
+        instance.menu.placement = "top";
       }
+
+      instance.menu.placement = "bottom";
     },
     setupMenuSizeWatcher: function setupMenuSizeWatcher() {
       var instance = this.instance;

@@ -9,6 +9,8 @@
       :defaultExpandLevel="Infinity"
       :defaultOpen="true"
       :openOnClick="true"
+      openDirection="bottom"
+      :z-index="3"
     />
     <treeselect
       :multiple="true"
@@ -19,6 +21,8 @@
       :defaultExpandLevel="Infinity"
       :defaultOpen="true"
       :openOnClick="true"
+      openDirection="bottom"
+      :z-index="2"
     />
     <pre class="result">{{ value }}</pre>
   </div>
@@ -35,7 +39,7 @@ export default {
         children: [
           {
             id: "apple",
-            label: "Apple 🍎",
+            label: "Adasdasfasdasdasdasdasdasdasaswdasdasqddaspple 🍎",
             isNew: true
           },
           {

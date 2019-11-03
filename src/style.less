@@ -2,8 +2,8 @@
  * Dependencies
  */
 
-@import '~material-colors/dist/colors.less';
-@import '~easings-css/easings.less';
+@import "~material-colors/dist/colors.less";
+@import "~easings-css/easings.less";
 
 /**
  * Variables
@@ -22,7 +22,8 @@
 @treeselect-max-level: 8;
 
 @treeselect-control-height: 36px;
-@treeselect-control-inner-height: @treeselect-control-height - @treeselect-control-border-width * 2;
+@treeselect-control-inner-height: @treeselect-control-height -
+  @treeselect-control-border-width * 2;
 @treeselect-control-border-width: 1px;
 @treeselect-control-border-color: #dcdfe6;
 @treeselect-control-border-color-hover: #dcdfe6;
@@ -30,7 +31,8 @@
 @treeselect-control-border-color-focus: #4670e4;
 @treeselect-control-border-radius: @treeselect-border-radius-lg;
 @treeselect-control-bg: #fff;
-@treeselect-control-box-shadow-focus: 0 0 0 3px fade(@treeselect-control-border-color-focus, 10%);
+@treeselect-control-box-shadow-focus: 0 0 0 3px
+  fade(@treeselect-control-border-color-focus, 10%);
 @treeselect-control-bg-disabled: #f9f9f9;
 
 @treeselect-placeholder-font-color: @md-grey-400;
@@ -92,18 +94,18 @@
 @treeselect-checkbox-bg-hover: @treeselect-checkbox-bg;
 @treeselect-checkbox-indeterminate-border-color: @treeselect-checkbox-color-highlight;
 @treeselect-checkbox-indeterminate-bg: @treeselect-checkbox-color-highlight;
-@treeselect-checkbox-indeterminate-icon: './assets/checkbox-indeterminate.png';
+@treeselect-checkbox-indeterminate-icon: "./assets/checkbox-indeterminate.png";
 @treeselect-checkbox-indeterminate-border-color-hover: @treeselect-checkbox-color-highlight;
 @treeselect-checkbox-indeterminate-bg-hover: @treeselect-checkbox-color-highlight;
 @treeselect-checkbox-checked-border-color: @treeselect-checkbox-color-highlight;
 @treeselect-checkbox-checked-bg: @treeselect-checkbox-color-highlight;
-@treeselect-checkbox-checked-icon: './assets/checkbox-checked.png';
+@treeselect-checkbox-checked-icon: "./assets/checkbox-checked.png";
 @treeselect-checkbox-checked-border-color-hover: @treeselect-checkbox-color-highlight;
 @treeselect-checkbox-checked-bg-hover: @treeselect-checkbox-color-highlight;
 @treeselect-checkbox-disabled-border-color: @treeselect-checkbox-border-color;
 @treeselect-checkbox-disabled-bg-color: darken(@treeselect-checkbox-bg, 3%);
-@treeselect-checkbox-disabled-indeterminate-icon: './assets/checkbox-indeterminate-disabled.png';
-@treeselect-checkbox-disabled-checked-icon: './assets/checkbox-checked-disabled.png';
+@treeselect-checkbox-disabled-indeterminate-icon: "./assets/checkbox-indeterminate-disabled.png";
+@treeselect-checkbox-disabled-checked-icon: "./assets/checkbox-checked-disabled.png";
 @treeselect-option-label-color: inherit;
 @treeselect-option-label-color-disabled: rgba(0, 0, 0, 0.25);
 
@@ -151,9 +153,10 @@
 }
 
 .text-truncate() {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  // white-space: nowrap;
+  word-break: break-all;
 }
 
 .horizontal-padding(@value) {
@@ -203,8 +206,8 @@
 // based on: https://github.com/strues/retinajs/blob/master/dist/retina.less
 .retina(@path, @cap: 2) {
   // stylelint-disable-line selector-class-pattern
-  @lowretina: ~'(min-resolution: 1.5dppx)';
-  @2xpath: replace(@path, '(\.\w+)$', '@2x$1');
+  @lowretina: ~"(min-resolution: 1.5dppx)";
+  @2xpath: replace(@path, "(\.\w+)$", "@2x$1");
 
   background-image: url(@path);
 
@@ -214,7 +217,7 @@
 
   .create-queries() when (@cap >= 2) {
     .loop(@env) when (@env <= @cap) {
-      @retinapath: replace(@path, '(\.\w+)$', '@@{env}x$1');
+      @retinapath: replace(@path, "(\.\w+)$", "@@{env}x$1");
       @media (min-resolution: @env * 96dpi) {
         background-image: url(@retinapath);
       }
@@ -332,6 +335,7 @@
   div,
   span {
     box-sizing: border-box;
+    font-family: "Microsoft YaHei", sans-serif;
   }
 
   svg {
@@ -347,14 +351,17 @@
   .row();
 
   height: @treeselect-control-height;
-  border: @treeselect-control-border-width solid @treeselect-control-border-color;
+  border: @treeselect-control-border-width solid
+    @treeselect-control-border-color;
   border-radius: @treeselect-control-border-radius;
   background: @treeselect-control-bg;
   transition-duration: @treeselect-transition-duration;
-  transition-property: border-color, box-shadow, width, height, background-color, opacity;
+  transition-property: border-color, box-shadow, width, height, background-color,
+    opacity;
   transition-timing-function: @ease-out-cubic;
 
-  .vue-treeselect:not(.vue-treeselect--disabled):not(.vue-treeselect--focused) &:hover {
+  .vue-treeselect:not(.vue-treeselect--disabled):not(.vue-treeselect--focused)
+    &:hover {
     border-color: @treeselect-control-border-color-hover;
   }
 
@@ -447,7 +454,8 @@
   background: @treeselect-multi-value-item-bg;
   // Table elements do not have margin, so we set at the container element.
   padding: @treeselect-multi-value-margin-y @treeselect-multi-value-margin-x;
-  border: @treeselect-multi-value-item-border-width solid @treeselect-multi-value-item-border-color;
+  border: @treeselect-multi-value-item-border-width solid
+    @treeselect-multi-value-item-border-color;
   border-radius: @treeselect-border-radius-sm;
   color: @treeselect-multi-value-font-color;
   font-size: @treeselect-multi-value-font-size;
@@ -532,7 +540,11 @@
 
   display: block;
   margin: @treeselect-multi-value-margin-y @treeselect-multi-value-margin-x;
-  padding: (@treeselect-multi-value-padding-y + @treeselect-multi-value-item-border-width) 0;
+  padding: (
+      @treeselect-multi-value-padding-y +
+        @treeselect-multi-value-item-border-width
+    )
+    0;
   color: @treeselect-limit-tip-font-color;
   font-size: @treeselect-limit-tip-font-size;
   font-weight: @treeselect-limit-tip-font-weight;
@@ -558,7 +570,8 @@
     .horizontal-padding(@treeselect-padding);
   }
 
-  .vue-treeselect--searchable.vue-treeselect--multi.vue-treeselect--has-value & {
+  .vue-treeselect--searchable.vue-treeselect--multi.vue-treeselect--has-value
+    & {
     padding-top: @treeselect-padding;
     padding-left: 0;
   }
@@ -598,7 +611,10 @@
   }
 
   .vue-treeselect--multi & {
-    .vertical-padding(@treeselect-multi-value-margin-y + @treeselect-multi-value-item-border-width);
+    .vertical-padding(
+      @treeselect-multi-value-margin-y +
+        @treeselect-multi-value-item-border-width
+    );
   }
 
   .vue-treeselect--has-value & {
@@ -622,7 +638,8 @@
   .clickable();
 
   color: @treeselect-x-color;
-  animation: @treeselect-transition-duration vue-treeselect-animation-fade-in @ease-out-circ;
+  animation: @treeselect-transition-duration vue-treeselect-animation-fade-in
+    @ease-out-circ;
 
   &:hover {
     color: @treeselect-x-color-hover;
@@ -648,7 +665,9 @@
   height: @treeselect-arrow-size;
   color: @treeselect-arrow-color;
 
-  .vue-treeselect:not(.vue-treeselect--disabled) .vue-treeselect__control-arrow-container:hover & {
+  .vue-treeselect:not(.vue-treeselect--disabled)
+    .vue-treeselect__control-arrow-container:hover
+    & {
     color: @treeselect-arrow-color-hover;
   }
 
@@ -724,7 +743,8 @@
     }
 
     .vue-treeselect__tip {
-      padding-left: @treeselect-padding + (@i + 1) * @treeselect-narrow-cell-width;
+      padding-left: @treeselect-padding + (@i + 1) *
+        @treeselect-narrow-cell-width;
     }
   }
 }
@@ -769,7 +789,8 @@
   height: @treeselect-arrow-size;
   color: @treeselect-arrow-color;
   vertical-align: middle;
-  transition: @treeselect-transition-duration transform @treeselect-arrow-transition-timing-function;
+  transition: @treeselect-transition-duration transform
+    @treeselect-arrow-transition-timing-function;
   transform: rotateZ(-90deg);
 
   .vue-treeselect__option-arrow-container:hover &,
@@ -782,7 +803,9 @@
   transform: rotateZ(0);
 
   &.vue-treeselect__option-arrow--prepare-enter {
-    transform: rotateZ(-90deg) !important; // stylelint-disable-line declaration-no-important
+    transform: rotateZ(
+      -90deg
+    ) !important; // stylelint-disable-line declaration-no-important
   }
 }
 
@@ -970,7 +993,7 @@
   &::after {
     display: block;
     position: absolute;
-    content: '';
+    content: "";
     left: 5px;
     top: 2.5px;
     width: 2px;
@@ -996,7 +1019,7 @@
   &::after {
     display: block;
     position: absolute;
-    content: '';
+    content: "";
     background: #fff;
     transform: rotate(45deg);
   }
@@ -1023,22 +1046,23 @@
   width: @treeselect-icon-size;
   height: @treeselect-icon-size;
   text-align: center;
-  animation: @treeselect-loader-animation-duration vue-treeselect-animation-rotate linear infinite;
+  animation: @treeselect-loader-animation-duration
+    vue-treeselect-animation-rotate linear infinite;
 
   &::before,
   &::after {
     .rounded();
 
     position: absolute;
-    content: '';
+    content: "";
     left: 0;
     top: 0;
     display: block;
     width: 100%;
     height: 100%;
     opacity: 0.6;
-    animation: @treeselect-loader-animation-duration vue-treeselect-animation-bounce ease-in-out
-      infinite;
+    animation: @treeselect-loader-animation-duration
+      vue-treeselect-animation-bounce ease-in-out infinite;
   }
 
   &::before {
