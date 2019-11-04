@@ -110,6 +110,7 @@
 .vue-treeselect {
   position: relative;
   text-align: left;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.15);
 }
 .vue-treeselect div,
 .vue-treeselect span {
@@ -438,7 +439,7 @@
   top: 0;
   margin-top: -1px;
   border-top-color: #f2f2f2;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.15);
 }
 .vue-treeselect--open-above .vue-treeselect__menu {
   border-top-left-radius: 5px;
@@ -579,7 +580,8 @@
   min-width: 20px;
   height: 100%;
   text-align: center;
-  vertical-align: middle;
+  vertical-align: top;
+  padding-top: 6px;
 }
 .vue-treeselect__checkbox {
   display: block;
@@ -731,7 +733,7 @@
   display: table-cell;
   padding-left: 5px;
   max-width: 100%;
-  vertical-align: middle;
+  vertical-align: top;
   cursor: inherit;
 }
 .vue-treeselect__count {
