@@ -69,7 +69,7 @@
 @treeselect-menu-bg: #fff;
 @treeselect-menu-padding-y: @treeselect-padding;
 @treeselect-menu-line-height: 180%;
-@treeselect-menu-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+@treeselect-menu-box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.15);
 @treeselect-control-menu-divider-color: #f2f2f2;
 
 @treeselect-arrow-size: 9px;
@@ -331,6 +331,7 @@
 .vue-treeselect {
   position: relative;
   text-align: left;
+  box-shadow: @treeselect-menu-box-shadow;
 
   div,
   span {
@@ -831,7 +832,8 @@
   min-width: @treeselect-narrow-cell-width;
   height: 100%;
   text-align: center;
-  vertical-align: middle;
+  vertical-align: top;
+  padding-top: 6px;
 }
 
 .vue-treeselect__checkbox {
@@ -939,7 +941,7 @@
   display: table-cell;
   padding-left: @treeselect-padding;
   max-width: 100%;
-  vertical-align: middle;
+  vertical-align: top;
   cursor: inherit; // override user agent style
 }
 
